@@ -1,15 +1,28 @@
 import { StyleSheet } from 'react-native';
-import { green } from '@constants/colors';
+import { black, gray, blue, white } from '@constants/colors';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
+    backgroundColor: gray,
+    padding: 10
   },
   mainButton: {
-    backgroundColor: green,
-    padding: 10,
-    borderRadius: 3
+    color: black,
+    fontWeight: 'bold',
+    fontSize: 12
+  },
+  separator: {
+    height: 5
+  },
+  list: {
+    marginBottom: 10
+  },
+  button: {
+    backgroundColor: blue,
+    borderRadius: 10
+  },
+  buttonTextStyle: {
+    color: white
   }
 });

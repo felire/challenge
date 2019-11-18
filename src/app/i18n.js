@@ -5,6 +5,6 @@ import Routes from '@constants/routes';
 
 i18next.addResources('es', 'app', {
   es: {
-    [Routes.Home]: 'Home'
+    [Routes.Home]: 'Supermarket List'
   }
 });

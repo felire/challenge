@@ -7,18 +7,18 @@ import {
 } from 'react-navigation-redux-helpers';
 import { fetchMiddleware, configureMergeState } from 'redux-recompose';
 
+import items from './items/reducer';
 
 import Navigator from '@screens';
-
 
 const nav = createNavigationReducer(Navigator);
 
 configureMergeState((state, diff) => state.merge(diff));
 
 const reducers = combineReducers({
-nav
+  nav,
+  items
 });
-
 
 const middlewares = [];
 const enhancers = [];

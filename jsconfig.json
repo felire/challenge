@@ -11,6 +11,7 @@
       "@config/*": ["./src/config/*"],
       "@constants/*": ["./src/constants/*"],
       "@screens/*": ["./src/app/screens/*"],
+      "@assets/*": ["./src/app/assets/*"],
       "@services/*": ["./src/services/*"],
       "@redux/*": ["./src/redux/*"],
       "@utils/*": ["./src/utils/*"]
