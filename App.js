@@ -5,11 +5,10 @@ import store from '@redux/store';
 
 import App from '@app';
 
-
 export default function index() {
   return (
     <Provider store={store}>
-        <App />
+      <App />
     </Provider>
   );
 }

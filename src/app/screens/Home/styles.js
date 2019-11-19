@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { black, gray, blue, white } from '@constants/colors';
+import { black, lightGray, blue, white } from '@constants/colors';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: gray,
+    backgroundColor: lightGray,
     padding: 10
   },
   mainButton: {

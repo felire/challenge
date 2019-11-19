@@ -1,36 +1,53 @@
 import { StyleSheet } from 'react-native';
-import fonts from '@config/fonts';
-import { gray, transparent } from '@constants/colors';
+import { GOTHAM_ROUNDED_MEDIUM } from '@constants/fonts';
+import { gray, transparent, white } from '@constants/colors';
+
+const INPUT_PADDING = 5;
 
 export default StyleSheet.create({
-  container: {
+  containerWithLabel: {
+    marginTop: 10
+  },
+  inputContainer: {
     flexDirection: 'row',
-    height: 42,
+    height: 20,
     justifyContent: 'space-between',
     alignItems: 'center'
   },
   multilineContainer: {
     flex: 1
   },
-  inputStyle: {
-    ...fonts.baseFont,
-    padding: 0,
-    marginHorizontal: 0,
-    marginBottom: 0
-  },
   singleInput: {
-    flex: 1
+    color: white,
+    flex: 1,
+    paddingLeft: INPUT_PADDING
   },
   multilineInput: {
+    color: white,
     paddingTop: 10,
+    fontSize: 14,
     paddingLeft: 0
   },
   bottomBorder: {
     borderBottomWidth: 1,
     borderBottomColor: gray
   },
-  title: {
-    marginTop: 5,
-    backgroundColor: transparent
+  inputStyle: {
+    fontSize: 14,
+    fontFamily: GOTHAM_ROUNDED_MEDIUM,
+    paddingHorizontal: 0,
+    marginHorizontal: 0,
+    marginBottom: 0,
+    paddingVertical: 0
+  },
+  label: {
+    fontFamily: GOTHAM_ROUNDED_MEDIUM,
+    backgroundColor: transparent,
+    color: white,
+    position: 'absolute',
+    left: INPUT_PADDING
+  },
+  error: {
+    marginTop: 5
   }
 });

@@ -5,5 +5,8 @@ import i18next from 'i18next';
 i18next.addResources('es', 'HOME', {
   TITLE: 'Supermarket List',
   ADD_ITEM: 'Add Item',
-  NO_ITEMS: 'Items list is empty'
+  NO_ITEMS: 'List is empty',
+  CANCEL: 'Cancel',
+  ADD: 'Add',
+  EMPTY_FIELD: 'This field can not be empty'
 });

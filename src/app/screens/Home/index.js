@@ -1,16 +1,41 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { actionsCreators as ItemsActions } from '@redux/items/actions';
+import { actionCreators as ItemsActions } from '@redux/items/actions';
 
 import Home from './layout';
 import './i18n';
 
 class HomeContainer extends Component {
-  componentDidMount() {}
+  state = { modalVisibility: false };
+
+  componentDidMount() {
+    const { getItems } = this.props;
+    getItems();
+  }
+
+  onHandleAddItem = values => {
+    const { addItem } = this.props;
+    const { itemTitle } = values;
+    addItem({ title: itemTitle });
+    this.handleCancelAddItem();
+  };
+
+  handleCancelAddItem = () => this.setState({ modalVisibility: false });
+
+  handleOpenModal = () => this.setState({ modalVisibility: true });
 
   render() {
-    const { items, removeItem, addItem } = this.props;
-    return <Home items={items} removeItem={removeItem} addItem={addItem} />;
+    const { items } = this.props;
+    const { modalVisibility } = this.state;
+    return (
+      <Home
+        items={items}
+        addItem={this.onHandleAddItem}
+        modalVisibility={modalVisibility}
+        onAddItem={this.handleOpenModal}
+        onCloseModal={this.handleCancelAddItem}
+      />
+    );
   }
 }
 
@@ -19,11 +44,8 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  removeItem: item => dispatch(ItemsActions.removeItem(item)),
   addItem: item => dispatch(ItemsActions.addItem(item)),
   getItems: () => dispatch(ItemsActions.getItems())
 });
 
-const connectHomeContainer = connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
-
-export default connectHomeContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);

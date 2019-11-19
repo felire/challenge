@@ -1,17 +1,14 @@
-import React, { useState, useCallback, memo } from 'react';
+import React from 'react';
 import { View, TextInput, Text } from 'react-native';
 import PropTypes from 'prop-types';
+import i18next from 'i18next';
 import CustomText from '@components/CustomText';
 import { transparent } from '@constants/colors';
+import withForm from '@components/withForm';
 
-import ShowPassword from './components/ShowPassword';
 import styles from './styles';
 
 const CustomTextInput = props => {
-  const [showPassword, setShowPassword] = useState(false);
-
-  const handleShowPassword = useCallback(() => setShowPassword(prevShowPassword => !prevShowPassword), []);
-
   const {
     value,
     placeholderTextColor,
@@ -24,9 +21,7 @@ const CustomTextInput = props => {
     onBlur,
     onFocus,
     textStyles,
-    secureTextEntry,
-    showEye,
-    autoCompleteType
+    error
   } = props;
 
   const placeholderColor = value ? transparent : placeholderTextColor;
@@ -43,8 +38,7 @@ const CustomTextInput = props => {
           multiline ? styles.multilineContainer : styles.container,
           bottomBorder && styles.bottomBorder,
           style
-        ]}
-      >
+        ]}>
         <TextInput
           {...props}
           allowFontScaling={false}
@@ -54,11 +48,11 @@ const CustomTextInput = props => {
           value={value}
           style={[styles.inputStyle, multiline ? styles.multilineInput : styles.singleInput, textStyles]}
           placeholderTextColor={placeholderColor}
-          secureTextEntry={secureTextEntry && !showPassword}
-          autoCompleteType={secureTextEntry ? 'off' : autoCompleteType}
         />
-        {secureTextEntry && showEye && (
-          <ShowPassword onShowPassword={handleShowPassword} passwordVisible={showPassword} />
+        {error && (
+         <CustomText small error style={styles.error}>
+           {i18next.t(error)}
+         </CustomText>
         )}
       </View>
     </>
@@ -84,6 +78,7 @@ CustomTextInput.propTypes = {
   autoCorrect: PropTypes.bool,
   bottomBorder: PropTypes.bool,
   clearButtonMode: PropTypes.oneOf(['never', 'while-editing', 'unless-editing', 'always']),
+  error: PropTypes.string,
   keyboardType: PropTypes.oneOf(['default', 'numeric', 'email-address', 'phone-pad']),
   maxHeight: PropTypes.number,
   multiline: PropTypes.bool,
@@ -102,4 +97,4 @@ CustomTextInput.propTypes = {
   onFocus: PropTypes.func
 };
 
-export default memo(CustomTextInput);
+export default withForm(CustomTextInput);
