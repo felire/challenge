@@ -4,25 +4,31 @@ import Routes from '@constants/routes';
 import { blue, white } from '@constants/colors';
 import statusBarConfig from '@constants/statusBar';
 
+import '@app/i18n';
 import fonts from './fonts';
 
 // Default nav options for all screens
-const defaultNavOptions = ({ navigation }) => ({
-  // Change screen title from i18n traslates files
-  headerTitle: i18next.t(`app:${navigation.state.routeName}`),
-  // TODO: The following options are examples. Change them to your need
-  headerStyle: {
-    backgroundColor: blue
-  },
-  headerBackTitleStyle: {
-    color: white
-  },
-  headerTitleStyle: {
-    ...fonts.baseFont,
-    color: white
-  },
-  headerTintColor: white
-});
+const defaultNavOptions = ({ navigation }) => {
+  console.tron.log(navigation.state.routeName);
+  return {
+    // Change screen title from i18n traslates files
+    headerTitle: i18next.t(`app:${navigation.state.routeName}`),
+    // TODO: The following options are examples. Change them to your need
+    headerStyle: {
+      backgroundColor: blue
+    },
+    headerBackTitleStyle: {
+      color: white
+    },
+    headerTitleStyle: {
+      ...fonts.baseFont,
+      color: white,
+      textAlign: 'center',
+      flex: 1
+    },
+    headerTintColor: white
+  };
+};
 
 export const mainSwitchNavConfig = {
   initialRouteName: Routes.App
