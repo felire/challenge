@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { GOTHAM_ROUNDED_MEDIUM } from '@constants/fonts';
-import { gray, transparent, white } from '@constants/colors';
+import { gray, transparent, white, red } from '@constants/colors';
 
 const INPUT_PADDING = 5;
 
@@ -12,7 +12,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     height: 20,
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'flex-start'
   },
   multilineContainer: {
     flex: 1
@@ -48,6 +48,8 @@ export default StyleSheet.create({
     left: INPUT_PADDING
   },
   error: {
-    marginTop: 5
+    color: red,
+    alignSelf: 'flex-start',
+    marginBottom: 10
   }
 });

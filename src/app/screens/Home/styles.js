@@ -24,5 +24,9 @@ export default StyleSheet.create({
   },
   buttonTextStyle: {
     color: white
+  },
+  items: {
+    alignSelf: 'center',
+    marginBottom: 10
   }
 });

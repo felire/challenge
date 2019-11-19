@@ -1,6 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import CustomButton from '@components/CustomButton';
+import CustomText from '@components/CustomText';
 import i18next from 'i18next';
 
 import FormModal from './components/FormModal';
@@ -11,6 +12,9 @@ export default function Home({ items, addItem, modalVisibility, onCloseModal, on
   return (
     <View style={styles.container}>
       <FormModal visible={modalVisibility} onClose={onCloseModal} onAddItem={addItem} />
+      <CustomText small bold gray style={styles.items}>
+        {i18next.t('HOME:ITEMS', { count: items.length })}
+      </CustomText>
       <ItemList data={items} />
       <CustomButton
         activeOpacity={0.7}

@@ -44,7 +44,7 @@ export default StyleSheet.create({
   },
   formElement: {
     padding: 3,
-    marginBottom: 15,
+    marginBottom: 10,
     height: 40,
     width: '100%',
     borderColor: gray,

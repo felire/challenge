@@ -8,5 +8,7 @@ i18next.addResources('es', 'HOME', {
   NO_ITEMS: 'List is empty',
   CANCEL: 'Cancel',
   ADD: 'Add',
-  EMPTY_FIELD: 'This field can not be empty'
+  EMPTY_FIELD: 'This field can not be empty',
+  ITEMS: '{{count}} ITEM',
+  ITEMS_plural: '{{count}} ITEMS'
 });

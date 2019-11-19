@@ -49,12 +49,12 @@ const CustomTextInput = props => {
           style={[styles.inputStyle, multiline ? styles.multilineInput : styles.singleInput, textStyles]}
           placeholderTextColor={placeholderColor}
         />
-        {error && (
-         <CustomText small error style={styles.error}>
-           {i18next.t(error)}
-         </CustomText>
-        )}
       </View>
+      {error && (
+        <CustomText small bold style={styles.error}>
+          {i18next.t(error)}
+        </CustomText>
+      )}
     </>
   );
 };
