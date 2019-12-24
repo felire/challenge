@@ -38,7 +38,11 @@ export const actionCreators = {
     payload: item,
     successSelector: response => response,
     failureSelector: response => response,
-    injections: [withPostFailure(postFailureExample), withPostSuccess(postSuccessExample)]
+    injections: [
+      withFlowDetermination(response => response),
+      withPostFailure(postFailureExample),
+      withPostSuccess(postSuccessExample)
+    ]
   }),
   getItems: () => ({
     type: actions.GET_ITEMS,

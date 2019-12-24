@@ -28,7 +28,6 @@
     "prop-types": "^15.7.2",
     "react": "16.9.0",
     "react-native": "0.61.4",
-    "react-native-config": "^0.12.0",
     "react-native-gesture-handler": "^1.5.0",
     "react-native-localize": "^1.3.1",
     "react-native-reanimated": "^1.4.0",
@@ -96,7 +95,11 @@
       "<rootDir>/__tests__/redux/store.js",
       "<rootDir>/__tests__/redux/utils.js",
       "<rootDir>/__tests__/responses/",
-      "<rootDir>/__tests__/redux/items/responseExamples"
+      "<rootDir>/__tests__/redux/items/responseExamples",
+      "<rootDir>/__tests__/redux/services/service.js",
+      "<rootDir>/__tests__/redux/screens/Home.js",
+      "<rootDir>/__tests__/redux/items/actions.js",
+      "<rootDir>/__tests__/validations/tests.js"
     ],
     "transformIgnorePatterns": [
       "/node_modules/@react-native-community/async-storage/(?!(lib))"

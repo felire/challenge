@@ -1,4 +1,4 @@
-let cache = {};
+/* let cache = {};
 
 export const changeCache = object => {
   cache = object;
@@ -23,4 +23,13 @@ export default {
   clear: () => new Promise(resolve => resolve((cache = {}))),
 
   getAllKeys: () => new Promise(resolve => resolve(Object.keys(cache)))
+};
+*/
+
+export default {
+  setItem: jest.fn(),
+  getItem: jest.fn(),
+  removeItem: jest.fn(),
+  clear: jest.fn(),
+  getAllKeys: jest.fn()
 };

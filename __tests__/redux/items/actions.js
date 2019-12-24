@@ -4,7 +4,7 @@
 /* eslint-disable import/first */
 
 // jest.mock('@services/ItemService');
-import { addItem } from '@services/ItemService';
+import * as itemServices from '@services/ItemService';
 import { actionCreators, actions } from '@redux/items/actions';
 import api from '@config/api';
 import { withNavigation } from 'react-navigation';
@@ -18,26 +18,26 @@ describe('suit', () => {
   beforeEach(() => {
     store.clearActions();
   });
-  /* it('my redux and mock test', async () => {
+  it('my redux and mock test', async () => {
     const expectedActions = [actions.ADD_ITEM, actions.ADD_ITEM_SUCCESS, actions.SOME_SUCCESS];
-    addItem.mockReturnValue(Promise.resolve(true));
+    itemServices.addItem = jest.fn().mockReturnValue(Promise.resolve(true));
     await store.dispatch(actionCreators.addItem());
     const receivedActions = store.getActions().map(action => action.type);
     expect(expectedActions).toEqual(receivedActions);
-    expect(addItem.mock.calls).toHaveLength(1);
-  });*/
+    expect(itemServices.addItem.mock.calls).toHaveLength(1);
+  });
   it('my redux and mock test Async Storage', async () => {
     const expectedActions = [actions.ADD_ITEM, actions.ADD_ITEM_SUCCESS, actions.SOME_SUCCESS];
     await store.dispatch(actionCreators.addItem());
     const receivedActions = store.getActions().map(action => action.type);
     expect(expectedActions).toEqual(receivedActions);
   });
-  it('my other redux test', async () => {
+  /* it('my other redux test', async () => {
     api.delete = jest.fn().mockReturnValue(successApiCall);
     const expectedActions = [actions.REMOVE_ITEM, actions.REMOVE_ITEM_SUCCESS, actions.SOME_SUCCESS];
     await store.dispatch(actionCreators.removeItem());
     const receivedActions = store.getActions().map(action => action.type);
     expect(expectedActions).toEqual(receivedActions);
     expect(api.delete.mock.calls).toHaveLength(1);
-  });
+  });*/
 });

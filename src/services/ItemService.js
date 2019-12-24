@@ -15,8 +15,11 @@ export const addItem = async item => {
   return Promise.resolve(newItems);
 };
 
-export const removeItem = item => api.delete('bla');
-// const actualItems = await getItems();
-/* const newItems = actualItems.filter(it => it.id !== item.id);
+export const removeItem = async item => {
+  const actualItems = await getItems();
+  const newItems = actualItems.filter(it => it.id !== item.id);
   await AsyncStorage.setItem(ITEMS_KEY, JSON.stringify(newItems));
-  return new Promise.resolve(newItems);*/
+  return Promise.resolve(newItems);
+};
+
+// export const removeItem = api.delete('bla');
